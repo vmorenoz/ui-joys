@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vite + Lit + TS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/index.css"/>
+    <script type="module" src="/src/lib/components/icon/icon.ts"></script>
+    <script type="module" src="/src/lib/components/form/input-label.ts"></script>
+    <script type="module" src="/src/lib/components/form/input-hint-text.ts"></script>
+    <script type="module" src="/src/lib/components/form/radio-button.ts"></script>
+    <script type="module" src="/src/lib/components/form/checkbox.ts"></script>
+</head>
+<body>
+<div style="margin-top: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-2);">
+    <ui-checkbox label="Checkbox"></ui-checkbox>
+    <ui-checkbox label="Checkbox" disabled></ui-checkbox>
+    <ui-checkbox label="Primary" color="primary"></ui-checkbox>
+    <ui-checkbox label="Secondary" color="secondary"></ui-checkbox>
+    <ui-checkbox label="Success" color="success"></ui-checkbox>
+    <ui-checkbox label="Danger" color="danger"></ui-checkbox>
+    <ui-checkbox label="Warning" color="warning"></ui-checkbox>
+    <ui-checkbox label="Info" color="info"></ui-checkbox>
+    <ui-checkbox label="Checkbox RTL" rtl></ui-checkbox>
+</div>
+
+<script>
+    const checbox = document.getElementById('checkboxTest');
+
+    checbox.addEventListener('checked', function(e) {
+        console.log(checbox.checked);
+    });
+</script>
+</body>
+</html>
