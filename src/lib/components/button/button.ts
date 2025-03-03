@@ -101,31 +101,101 @@ export class Button extends LitElement {
             cursor: pointer;
             transition: all 0.2s ease-in-out;
             margin: 0 var(--spacing-2) var(--spacing-2) 0;
-        }
 
-        .ui-button:hover {
-            background-color: var(--alpha-white-10);
-        }
+            &:hover {
+                background-color: var(--alpha-white-10);
+            }
 
-        .ui-button[disabled] {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+            &[disabled] {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
 
-        .ui-button[loading] {
-            pointer-events: none;
-        }
+            &[loading] {
+                pointer-events: none;
 
-        .ui-button[loading]::after {
-            content: "";
-            display: block;
-            width: 1rem;
-            height: 1rem;
-            border: 2px solid;
-            border-radius: 50%;
-            border-top-color: transparent;
-            border-left-color: transparent;
-            animation: spin 1s linear infinite;
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 1rem;
+                    height: 1rem;
+                    border: 2px solid;
+                    border-radius: 50%;
+                    border-top-color: transparent;
+                    border-left-color: transparent;
+                    animation: spin 1s linear infinite;
+                }
+            }
+
+            &.default {
+                background-color: var(--gray-100);
+                color: var(--black);
+
+                &:hover {
+                    background-color: var(--gray-200);
+                    color: var(--black);
+                }
+            }
+
+            &.primary {
+                background-color: var(--primary-400);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--primary-500);
+                    color: var(--white);
+                }
+            }
+
+            &.secondary {
+                background-color: var(--secondary-400);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--secondary-500);
+                    color: var(--white);
+                }
+            }
+
+            &.success {
+                background-color: var(--success-400);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--success-500);
+                    color: var(--white);
+                }
+            }
+
+            &.error {
+                background-color: var(--error-400);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--error-500);
+                    color: var(--white);
+                }
+            }
+
+            &.warning {
+                background-color: var(--warning-400);
+                color: var(--black);
+
+                &:hover {
+                    background-color: var(--warning-500);
+                    color: var(--black);
+                }
+            }
+
+            &.info {
+                background-color: var(--info-400);
+                color: var(--white);
+
+                &:hover {
+                    background-color: var(--info-500);
+                    color: var(--white);
+                }
+            }
         }
 
         @keyframes spin {
@@ -135,78 +205,6 @@ export class Button extends LitElement {
             100% {
                 transform: rotate(360deg);
             }
-        }
-
-        /* Colors */
-
-        .ui-button.default {
-            background-color: var(--gray-100);
-            color: var(--black);
-        }
-
-        .ui-button.default:hover {
-            background-color: var(--gray-200);
-            color: var(--black);
-        }
-
-        .ui-button.primary {
-            background-color: var(--primary-400);
-            color: var(--white);
-        }
-
-        .ui-button.primary:hover {
-            background-color: var(--primary-500);
-            color: var(--white);
-        }
-
-        .ui-button.secondary {
-            background-color: var(--secondary-400);
-            color: var(--white);
-        }
-
-        .ui-button.secondary:hover {
-            background-color: var(--secondary-500);
-            color: var(--white);
-        }
-
-        .ui-button.success {
-            background-color: var(--success-400);
-            color: var(--white);
-        }
-
-        .ui-button.success:hover {
-            background-color: var(--success-500);
-            color: var(--white);
-        }
-
-        .ui-button.error {
-            background-color: var(--error-400);
-            color: var(--white);
-        }
-
-        .ui-button.error:hover {
-            background-color: var(--error-500);
-            color: var(--white);
-        }
-
-        .ui-button.warning {
-            background-color: var(--warning-400);
-            color: var(--black);
-        }
-
-        .ui-button.warning:hover {
-            background-color: var(--warning-500);
-            color: var(--black);
-        }
-
-        .ui-button.info {
-            background-color: var(--info-400);
-            color: var(--white);
-        }
-
-        .ui-button.info:hover {
-            background-color: var(--info-500);
-            color: var(--white);
         }
     `;
 }
