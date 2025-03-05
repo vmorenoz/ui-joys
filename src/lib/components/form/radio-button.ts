@@ -246,7 +246,7 @@ export class RadioButton extends LitElement {
         @media (prefers-color-scheme: dark) {
             .ui-radio-button-control {
                 border-color: var(--alpha-white-70);
-                background-color: var(--alpha-black-50);
+                background-color: var(--alpha-black-80);
 
                 &:checked {
                     &::after {

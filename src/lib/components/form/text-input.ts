@@ -241,6 +241,10 @@ export class TextInput extends LitElement {
             font-size: var(--font-size-base);
             font-weight: 400;
             width: 100%;
+            
+            &[disabled] {
+                color: var(--gray-500);
+            }
         }
 
         .ui-text-input-control:disabled {

@@ -14,25 +14,28 @@
     <script type="module" src="/src/lib/components/form/input-hint-text.ts"></script>
     <script type="module" src="/src/lib/components/form/radio-button.ts"></script>
     <script type="module" src="/src/lib/components/form/checkbox.ts"></script>
+    <script type="module" src="/src/lib/components/form/text-input.ts"></script>
+    <script type="module" src="/src/lib/components/form/textarea.ts"></script>
+    <script type="module" src="/src/lib/components/form/select.ts"></script>
+    <script type="module" src="/src/lib/components/form/select-option.ts"></script>
 </head>
 <body>
 <div style="margin-top: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-2);">
-    <ui-checkbox label="Checkbox"></ui-checkbox>
-    <ui-checkbox label="Checkbox" disabled></ui-checkbox>
-    <ui-checkbox label="Primary" color="primary"></ui-checkbox>
-    <ui-checkbox label="Secondary" color="secondary"></ui-checkbox>
-    <ui-checkbox label="Success" color="success"></ui-checkbox>
-    <ui-checkbox label="Danger" color="danger"></ui-checkbox>
-    <ui-checkbox label="Warning" color="warning"></ui-checkbox>
-    <ui-checkbox label="Info" color="info"></ui-checkbox>
-    <ui-checkbox label="Checkbox RTL" rtl></ui-checkbox>
+    <ui-text-input label="Label" placeholder="Placeholder" value="Value" disabled></ui-text-input>
+    <ui-text-input label="Label" placeholder="Placeholder" value="Value" right-icon="search"></ui-text-input>
+    <ui-textarea label="Label" placeholder="Placeholder" value="Value"></ui-textarea>
+    <ui-select id="selectTest" label="Label" placeholder="Placeholder" value="1">
+        <ui-select-option value="1">Option 1</ui-select-option>
+        <ui-select-option value="2" disabled>Option 2</ui-select-option>
+        <ui-select-option value="3">Option 3</ui-select-option>
+    </ui-select>
 </div>
 
 <script>
-    const checbox = document.getElementById('checkboxTest');
+    const select = document.getElementById('selectTest');
 
-    checbox.addEventListener('checked', function(e) {
-        console.log(checbox.checked);
+    select.addEventListener('on-select', function (e) {
+        console.log(select.value);
     });
 </script>
 </body>

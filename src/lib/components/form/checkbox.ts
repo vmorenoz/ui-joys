@@ -164,56 +164,28 @@ export class Checkbox extends LitElement {
                 cursor: not-allowed !important;
             }
 
-            &:checked {
-                background-color: var(--gray-100);
-            }
-
             &.color-primary {
                 border-color: var(--primary-500);
-
-                &:checked {
-                    background-color: var(--primary-50);
-                }
             }
 
             &.color-secondary {
                 border-color: var(--secondary-500);
-
-                &:checked {
-                    background-color: var(--secondary-50);
-                }
             }
 
             &.color-success {
                 border-color: var(--success-500);
-
-                &:checked {
-                    background-color: var(--success-50);
-                }
             }
 
             &.color-danger {
                 border-color: var(--error-500);
-
-                &:checked {
-                    background-color: var(--error-50);
-                }
             }
 
             &.color-warning {
                 border-color: var(--warning-500);
-
-                &:checked {
-                    background-color: var(--warning-50);
-                }
             }
 
             &.color-info {
                 border-color: var(--info-500);
-
-                &:checked {
-                    background-color: var(--info-50);
-                }
             }
         }
 
@@ -222,6 +194,7 @@ export class Checkbox extends LitElement {
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
             font-size: var(--font-size-lg);
+            color: var(--gray-500);
 
             &.visible {
                 opacity: 1;
@@ -255,11 +228,7 @@ export class Checkbox extends LitElement {
         @media (prefers-color-scheme: dark) {
             .ui-checkbox-control {
                 border-color: var(--alpha-white-70);
-                background-color: var(--alpha-black-50);
-
-                &:checked {
-                    background-color: var(--alpha-black-80);
-                }
+                background-color: var(--alpha-black-80);
 
                 &:disabled {
                     background-color: var(--alpha-black-30);
@@ -267,50 +236,26 @@ export class Checkbox extends LitElement {
 
                 &.color-primary {
                     border-color: var(--primary-500);
-
-                    &:checked {
-                        background-color: var(--primary-400);
-                    }
                 }
 
                 &.color-secondary {
                     border-color: var(--secondary-500);
-
-                    &:checked {
-                        background-color: var(--secondary-400);
-                    }
                 }
 
                 &.color-success {
                     border-color: var(--success-500);
-
-                    &:checked {
-                        background-color: var(--success-400);
-                    }
                 }
 
                 &.color-danger {
                     border-color: var(--error-500);
-
-                    &:checked {
-                        background-color: var(--error-400);
-                    }
                 }
 
                 &.color-warning {
                     border-color: var(--warning-500);
-
-                    &:checked {
-                        background-color: var(--warning-500);
-                    }
                 }
 
                 &.color-info {
                     border-color: var(--info-500);
-
-                    &:checked {
-                        background-color: var(--info-400);
-                    }
                 }
             }
 
