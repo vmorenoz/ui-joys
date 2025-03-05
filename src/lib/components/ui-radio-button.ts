@@ -1,10 +1,11 @@
 import {customElement, property} from "lit/decorators.js";
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {v4 as uuidv4} from "uuid";
-import {ColorType} from "./form-types.ts";
+
+type RadioColor = "default" | "primary" | "secondary" | "success" | "danger" | "warning" | "info";
 
 @customElement('ui-radio-button')
-export class RadioButton extends LitElement {
+export class UiRadioButton extends LitElement {
 
     /**
      * The id of the radio button
@@ -76,7 +77,7 @@ export class RadioButton extends LitElement {
      * The color of the radio button
      */
     @property({type: String, attribute: "color"})
-    color: ColorType = "default";
+    color: RadioColor = "default";
 
     /**
      * The text to display into the left hint
@@ -89,6 +90,11 @@ export class RadioButton extends LitElement {
      */
     @property({type: String, attribute: "right-hint"})
     rightHint = "";
+
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-hint-text.ts")
+    }
 
     render() {
         return html`

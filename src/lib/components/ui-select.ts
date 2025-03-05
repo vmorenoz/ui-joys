@@ -1,5 +1,5 @@
 import {customElement, property, state} from "lit/decorators.js";
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {v4 as uuidv4} from "uuid";
 
 @customElement("ui-select")
@@ -94,6 +94,14 @@ export class UiSelect extends LitElement {
     get _slottedChildren() {
         const slot = this.shadowRoot?.querySelector('slot');
         return slot?.assignedElements({flatten: true}) || [];
+    }
+
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-select-option.ts")
+        await import("./ui-input-label.ts")
+        await import("./ui-icon.ts")
+        await import("./ui-hint-text.ts")
     }
 
     updated(changedProperties: any) {

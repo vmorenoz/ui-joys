@@ -1,10 +1,11 @@
 import {customElement, property} from "lit/decorators.js";
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {v4 as uuidv4} from "uuid";
-import {ColorType} from "./form-types.ts";
+
+type CheckboxColor = "default" | "primary" | "secondary" | "success" | "danger" | "warning" | "info";
 
 @customElement('ui-checkbox')
-export class Checkbox extends LitElement {
+export class UiCheckbox extends LitElement {
 
     /**
      * The id of the checkbox
@@ -70,7 +71,7 @@ export class Checkbox extends LitElement {
      * The color of the checkbox
      */
     @property({type: String, attribute: "color"})
-    color: ColorType = "default";
+    color: CheckboxColor = "default";
 
     /**
      * The text to display into the left hint
@@ -83,6 +84,12 @@ export class Checkbox extends LitElement {
      */
     @property({type: String, attribute: "right-hint"})
     rightHint = "";
+
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-hint-text.ts")
+        await import("./ui-icon.ts")
+    }
 
     render() {
         return html`
@@ -122,7 +129,6 @@ export class Checkbox extends LitElement {
             align-items: center;
             justify-content: space-between;
             gap: var(--spacing-1);
-            padding: 0 var(--spacing-1);
         }
 
         .ui-checkbox-wrapper {

@@ -1,10 +1,12 @@
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {customElement, property} from "lit/decorators.js";
 import {v4 as uuidv4} from "uuid";
-import {ButtonColor, ButtonType} from "./button-types.ts";
+
+type ButtonType = "button" | "submit" | "reset";
+type ButtonColor = "default" | "primary" | "secondary" | "success" | "danger" | "warning" | "info";
 
 @customElement('ui-button')
-export class Button extends LitElement {
+export class UiButton extends LitElement {
 
     /**
      * The id of the button
@@ -45,24 +47,19 @@ export class Button extends LitElement {
     @property({type: String}) color: ButtonColor = "default";
 
     /**
-     * Whether the button has a left icon
-     */
-    @property({type: Boolean, attribute: "show-left-icon"}) showLeftIcon = false;
-
-    /**
      * The left icon to display
      */
-    @property({type: String, attribute: "left-icon"}) leftIcon = "arrow-left";
-
-    /**
-     * Whether the button has a right icon
-     */
-    @property({type: Boolean, attribute: "show-right-icon"}) showRightIcon = false;
+    @property({type: String, attribute: "left-icon"}) leftIcon = "";
 
     /**
      * The right icon to display
      */
-    @property({type: String, attribute: "right-icon"}) rightIcon = "arrow-right";
+    @property({type: String, attribute: "right-icon"}) rightIcon = "";
+
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-icon.ts");
+    }
 
     render() {
         return html`
@@ -70,10 +67,10 @@ export class Button extends LitElement {
                     type="${this.type}"
                     ?disabled="${this.disabled}"
                     ?loading="${this.loading}" @click="${this.handleClick}">
-                ${this.showLeftIcon ? html`
+                ${this.leftIcon ? html`
                     <ui-icon name="${this.leftIcon}"></ui-icon>` : null}
                 ${this.text}
-                ${this.showRightIcon ? html`
+                ${this.rightIcon ? html`
                     <ui-icon name="${this.rightIcon}"></ui-icon>` : null}
             </button>
         `;

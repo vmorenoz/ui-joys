@@ -3,7 +3,7 @@ import {customElement, property} from "lit/decorators.js";
 import styles from "iconoir/css/iconoir.css?inline";
 
 @customElement('ui-icon')
-export class Icon extends LitElement {
+export class UiIcon extends LitElement {
     /**
      * The name of the icon to display
      */
@@ -30,6 +30,6 @@ export class Icon extends LitElement {
 
 declare global {
     interface HTMLElementTagNameMap {
-        'ui-icon': Icon;
+        'ui-icon': UiIcon;
     }
 }

@@ -1,9 +1,10 @@
 import {customElement, property} from "lit/decorators.js";
 import {css, html, LitElement} from "lit";
-import {ColorType} from "./form-types.ts";
+
+type InputLabelColor = "default" | "primary" | "secondary" | "success" | "danger" | "warning" | "info";
 
 @customElement('ui-input-label')
-export class InputLabel extends LitElement {
+export class UiInputLabel extends LitElement {
     /**
      * The text to display on the label
      */
@@ -12,7 +13,7 @@ export class InputLabel extends LitElement {
     /**
      * The color of the label
      */
-    @property({type: String}) color: ColorType = "default";
+    @property({type: String}) color: InputLabelColor = "default";
 
     /**
      * Whether the label is required
@@ -47,12 +48,13 @@ export class InputLabel extends LitElement {
             opacity: 0.5;
             cursor: not-allowed;
         }
-        
-        .required{
+
+        .required {
             color: var(--error-500);
         }
 
         /* Colors */
+
         .ui-input-label.primary {
             color: var(--primary-500);
         }
@@ -76,11 +78,11 @@ export class InputLabel extends LitElement {
         .ui-input-label.info {
             color: var(--info-500);
         }
-        
+
         .ui-input-label.gray {
             color: var(--gray-500);
         }
-        
+
         @media (prefers-color-scheme: dark) {
             .ui-input-label {
                 color: var(--alpha-white-80);

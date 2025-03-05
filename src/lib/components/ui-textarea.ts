@@ -1,9 +1,9 @@
 import {customElement, property} from "lit/decorators.js";
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {v4 as uuidv4} from "uuid";
 
 @customElement('ui-textarea')
-export class TextArea extends LitElement {
+export class UiTextarea extends LitElement {
     /**
      * The id of the textarea
      */
@@ -82,14 +82,22 @@ export class TextArea extends LitElement {
     @property({type: String, attribute: "right-hint"})
     rightHint = "";
 
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-hint-text.ts")
+        await import("./ui-input-label.ts")
+    }
+
     render() {
         return html`
             <div class="ui-textarea">
                 ${this.label ? html`
                     <ui-input-label text="${this.label}" ?required="${this.required}"></ui-input-label>` : null}
                 <div class="ui-textarea-wrapper ${this.invalid ? "invalid" : ""} ${this.valid ? "valid" : ""}">
-                    <textarea class="ui-textarea-control" id="${this.elementId}" name="${this.elementName}" placeholder="${this.placeholder}" ?disabled="${this.disabled}"
-                              ?readonly="${this.readonly}" @input="${this.handleInput}" @change="${this.handleChange}">${this.value}</textarea>
+                    <textarea class="ui-textarea-control" id="${this.elementId}" name="${this.elementName}"
+                              placeholder="${this.placeholder}" ?disabled="${this.disabled}"
+                              ?readonly="${this.readonly}" @input="${this.handleInput}"
+                              @change="${this.handleChange}">${this.value}</textarea>
                 </div>
                 <div class="ui-textarea-hint-container">
                     <ui-input-hint-text text="${this.leftHint}"></ui-input-hint-text>

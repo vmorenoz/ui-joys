@@ -1,10 +1,11 @@
 import {customElement, property} from "lit/decorators.js";
-import {css, html, LitElement} from "lit";
+import {css, html, LitElement, PropertyValues} from "lit";
 import {v4 as uuidv4} from "uuid";
-import {InputType} from "./form-types.ts";
+
+type InputType = "text" | "password" | "number";
 
 @customElement('ui-text-input')
-export class TextInput extends LitElement {
+export class UiTextInput extends LitElement {
     /**
      * The id of the input
      */
@@ -112,6 +113,13 @@ export class TextInput extends LitElement {
      */
     @property({type: String, attribute: "right-hint"})
     rightHint = "";
+
+    async firstUpdated(_changedProperties: PropertyValues) {
+        super.firstUpdated(_changedProperties);
+        await import("./ui-hint-text.ts")
+        await import("./ui-input-label.ts")
+        await import("./ui-icon.ts")
+    }
 
     render() {
         return html`
@@ -241,7 +249,7 @@ export class TextInput extends LitElement {
             font-size: var(--font-size-base);
             font-weight: 400;
             width: 100%;
-            
+
             &[disabled] {
                 color: var(--gray-500);
             }
