@@ -162,10 +162,11 @@ export class TextArea extends LitElement {
             font-size: var(--font-size-base);
             font-weight: 400;
             width: 100%;
-        }
 
-        .ui-textarea-control:disabled {
-            cursor: not-allowed;
+            &[disabled] {
+                color: var(--gray-500);
+                cursor: not-allowed;
+            }
         }
 
         .ui-textarea-wrapper.invalid {
