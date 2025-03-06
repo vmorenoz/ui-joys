@@ -29,32 +29,38 @@ export class UiButton extends LitElement {
     /**
      * The text to display on the button
      */
-    @property({type: String}) text = "Button";
+    @property({type: String})
+    text = "Button";
 
     /**
      * Whether the button is disabled
      */
-    @property({type: Boolean}) disabled = false;
+    @property({type: Boolean})
+    disabled = false;
 
     /**
      * Whether the button is loading
      */
-    @property({type: Boolean, attribute: "loading"}) loading = false;
+    @property({type: Boolean, attribute: "loading"})
+    loading = false;
 
     /**
      * The color of the button
      */
-    @property({type: String}) color: ButtonColor = "default";
+    @property({type: String})
+    color: ButtonColor = "default";
 
     /**
      * The left icon to display
      */
-    @property({type: String, attribute: "left-icon"}) leftIcon = "";
+    @property({type: String, attribute: "left-icon"})
+    leftIcon = "";
 
     /**
      * The right icon to display
      */
-    @property({type: String, attribute: "right-icon"}) rightIcon = "";
+    @property({type: String, attribute: "right-icon"})
+    rightIcon = "";
 
     async firstUpdated(_changedProperties: PropertyValues) {
         super.firstUpdated(_changedProperties);
@@ -78,7 +84,7 @@ export class UiButton extends LitElement {
 
     handleClick(event: Event) {
         event.stopPropagation();
-        this.dispatchEvent(new CustomEvent('clicked', {
+        this.dispatchEvent(new CustomEvent('click', {
             bubbles: true,
             composed: true,
         }));

@@ -59,12 +59,6 @@ export class UiTextarea extends LitElement {
     valid = false;
 
     /**
-     * The error message to display
-     */
-    @property({type: String, attribute: "error-message"})
-    errorMessage = "";
-
-    /**
      * The label to display
      */
     @property({type: String, attribute: "label"})

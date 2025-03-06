@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+  font-family: Outfit, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark; /* Permite ambos modos */
+  color: rgba(255, 255, 255, 0.87); /* Color de texto predeterminado para modo oscuro */
+  background-color: #242424; /* Fondo predeterminado para modo oscuro */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Espaciado */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+
+  /* Tamaños de Fuente */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+
+  /* Colores - Ajustados para ambos modos */
+  --primary-50: #e2eedd;
+  --primary-100: #c4ddbd;
+  --primary-200: #91bf8a;
+  --primary-300: #6aa463;
+  --primary-400: #478742;
+  --primary-500: #326b30;
+
+  --secondary-50: #e6f5e3;
+  --secondary-100: #cdeac8;
+  --secondary-200: #a4d99c;
+  --secondary-300: #74bf69;
+  --secondary-400: #50a344;
+  --secondary-500: #3e8534;
+
+  --success-50: #e8f5e9;
+  --success-100: #c8e6c9;
+  --success-200: #a5d6a7;
+  --success-300: #81c784;
+  --success-400: #66bb6a;
+  --success-500: #4caf50;
+
+  --error-50: #ffebee;
+  --error-100: #ffcdd2;
+  --error-200: #ef9a9a;
+  --error-300: #e57373;
+  --error-400: #ef5350;
+  --error-500: #f44336;
+
+  --warning-50: #fffde7;
+  --warning-100: #fff9c4;
+  --warning-200: #fff59d;
+  --warning-300: #fff176;
+  --warning-400: #ffee58;
+  --warning-500: #ffeb3b;
+
+  --info-50: #e0f7fa;
+  --info-100: #b2ebf2;
+  --info-200: #80deea;
+  --info-300: #4dd0e1;
+  --info-400: #26c6da;
+  --info-500: #00bcd4;
+
+  --gray-50: #f8f8f8;
+  --gray-100: #f0f0f0;
+  --gray-200: #dcdcdc;
+  --gray-300: #bdbdbd;
+  --gray-400: #989898;
+  --gray-500: #7c7c7c;
+
+  --black: #000;
+  --white: #fff;
+
+  /* Alpha White */
+  --alpha-white-10: rgba(255, 255, 255, 0.1);
+  --alpha-white-20: rgba(255, 255, 255, 0.2);
+  --alpha-white-30: rgba(255, 255, 255, 0.3);
+  --alpha-white-40: rgba(255, 255, 255, 0.4);
+  --alpha-white-50: rgba(255, 255, 255, 0.5);
+  --alpha-white-60: rgba(255, 255, 255, 0.6);
+  --alpha-white-70: rgba(255, 255, 255, 0.7);
+  --alpha-white-80: rgba(255, 255, 255, 0.8);
+  --alpha-white-90: rgba(255, 255, 255, 0.9);
+
+  /* Alpha Black */
+  --alpha-black-10: rgba(2, 2, 2, 0.1);
+  --alpha-black-20: rgba(2, 2, 2, 0.2);
+  --alpha-black-30: rgba(2, 2, 2, 0.3);
+  --alpha-black-40: rgba(2, 2, 2, 0.4);
+  --alpha-black-50: rgba(2, 2, 2, 0.5);
+  --alpha-black-60: rgba(2, 2, 2, 0.6);
+  --alpha-black-70: rgba(2, 2, 2, 0.7);
+  --alpha-black-80: rgba(2, 2, 2, 0.8);
+  --alpha-black-90: rgba(2, 2, 2, 0.9);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: var(--spacing-4);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #333333; /* Color de texto para modo claro */
+    background-color: #ffffff; /* Fondo para modo claro */
+  }
+}
+
+/* Ajustes para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(230, 230, 230, 0.87);
+    background-color: #2E3440;
+  }
+}
